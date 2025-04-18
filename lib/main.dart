@@ -51,7 +51,9 @@ class _DetectionPageState extends State<DetectionPage> {
     if (_image == null) return;
     setState(() => _loading = true);
 
-    final uri = Uri.parse('http://<your-backend-ip>:5000/predict');
+    final uri = Uri.parse(
+      'http://10.0.2.2:5000/predict',
+    ); // for Android emulator
     final request = http.MultipartRequest('POST', uri);
     request.files.add(
       await http.MultipartFile.fromPath(
